@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Grangemobile app</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js">
+         </script>
+         <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+         </script>
+         <script src="index.js">
+         </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZcsHUF10hndIrjA5BGNG20e0UajRLaMI&callback=initMap">
+        </script>
+        <link href="index.css" rel="stylesheet" type="text/css"/>
+        <style>
+        tr {
+         border-bottom: 1px solid lightgray;
+        }
+        </style>
+    </head>
+    
+    
+    <body>
+        <!--Start of Login page-->
+        <div data-role="page" id="login" data-theme="b">
+        <div data-role="header" data-position="fixed">
+            <img id="logo" src="app_images/DIT-logo-new-300x300.png"  alt=""/>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p id="intro"> Welcome to the GrangeMobile application</p>
+        <!--Login form for app -->
+            <form>
+                <input type="text" id="studentN" placeholder="Student number:" value="">
+                <input type="password" id="password" placeholder="Password:" value="">
+                <a  href="#home" id="loginbtn" data-role="button" data-transition="flip">Login</a>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+                <h3>GrangeMobile</h3>
+        </div>
+        </div>
+       <!--End of login page-->
+       
+       
+         <!--start of home page-->
+          
+        <div data-role="page" id="home" data-theme="b" >
+        <div data-role="header" data-position="fixed"> 
+               <h3>GrangeMobile</h3>
+        <!--Navigation list for app -->
+        <div data-role="navbar">
+                <ul>
+                <li><a href="#home" data-icon="home" data-transition="flip"></a></li>
+                <li><a href="#map-page" data-icon="location" data-transition="flip"></a></li>
+                <li><a href="#timetable" data-icon="grid" data-transition="flip"></a></li>
+                <li><a href="#societies" data-icon="info" data-transition="flip"></a></li>
+                <li><a id="logout" href="#login"  data-icon="lock" data-transition="slidefade"></a>
+                </ul>
+        </div>
+        </div>
+        <div data-role="main" class="ui-content" >
+                <!--Module images-->
+        <div>
+                <img src="app_images/Artboard 1.png" id="class1" width="100" height="100"  alt=""/>
+                <a href="#prjD" class="ui-btn">Design Practice</a> 
+        </div>
+        <div>
+                <img src="app_images/Artboard 2.png" id="class2" width="100" height="100"  alt=""/>
+                <a href="#uiD" class="ui-btn">Design Principles</a>
+        </div>
+        <div>
+                <img src="app_images/Artboard 3.png" id="class3" width="100" height="100" alt=""/>
+                <a href="#designP" class="ui-btn">Human Computer Interaction</a>
+        </div>
+        <div>
+                <img src="app_images/Artboard 4.png" id="class4" width="100" height="100" alt=""/>
+                <a href="#cdM" class="ui-btn">Creative Digital Media</a>
+        </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+                <h3>GrangeMobile</h3>
+        </div>
+        </div>
+        <!--End of home page-->
+        
+        <!--Start of Map-page page-->
+        <div data-role="page" id="map-page" data-theme="b" >
+        <div data-role="header" data-position="fixed"> 
+               <h3>GrangeMobile</h3>
+        <!--Navigation list for app -->
+        <div data-role="navbar">
+                <ul>
+                <li><a href="#home" data-icon="home" data-transition="flip"></a></li>
+                <li><a href="#map-page" data-icon="location" data-transition="flip"></a></li>
+                <li><a href="#timetable" data-icon="grid" data-transition="flip" ></a></li>
+                <li><a href="#societies" data-icon="info" data-transition="flip"></a></li>
+                <li><a href="#login"   data-icon="lock" data-transition="slidefade"></a>
+                </ul>
+        </div>
+        </div>
+        <!-- form for map-->
+        <div data-role="ui-content" id="map-canvas" >
+        <!-- map loads here... -->
+        </div>
+        </div> 
+    
+        <div data-role="footer" data-position="fixed">
+                <h3>GrangeMobile</h3>
+        </div>
+        
+        <!--End of Map-page page-->
+        
+        <!--start of timetable page-->
+        <div data-role="page" id="timetable" data-theme="b" >
+        <div data-role="header" data-position="fixed"> 
+               <h3>GrangeMobile</h3>
+        <!--Navigation list for app -->
+        <div data-role="navbar">
+                <ul>
+                <li><a href="#home" data-icon="home" data-transition="flip"></a></li>
+                <li><a href="#map-page" data-icon="location" data-transition="flip"></a></li>
+                <li><a href="#timetable" data-icon="grid"></a></li>
+                <li><a href="#societies" data-icon="info" data-transition="flip"></a></li>
+                <li><a href="#login" data-icon="lock" data-transition="slidefade"></a>
+                </ul>
+        </div>
+        </div>
+        <div data-role="main" class="ui-content" >
+        <!--Image src for timetable page -->
+                <img id="logo2" src="app_images/DIT-logo-new-300x300.png"  alt=""/>
+        <div data-role="collapsible" data-theme="b">
+                    <h3>Current Timetable</h3>
+        <!--priority list for timetable -->
+                <table data-role="table" data-mode="columntoggle"  
+                class="ui-responsive ui-shadow" id="myTable1">
+                <p>Note: Monday,Tuesday and Fridays 
+                   are assigned reading days</p>
+                <tr>
+                <th data-priority="1">Time:</th>   
+                <th data-priority="1">Wednesday</th>
+                <th data-priority="1">Thursday</th>
+                </tr>
+                <tr>
+                <td>09.00-13.00</td>
+                <td data-priority="1">Design Practice (01-0030)</td>
+                <td data-priority="1" >Design Principles (01-0023)</td>
+                </tr>
+                <tr>
+                <td>13.00-13.30</td>
+                <td>Break</td>
+                <td>Break</td>
+                </tr>
+                <tr>
+                <td>13.30-17.00</td>
+                <td data-priority="1">Dynamic Web Development (04-0037)</td>
+                <td data-priority="1">Human Computer Interaction (02-005)</td>
+                </tr>
+                </table>
+        </div>
+
+        <div data-role="collapsible" data-theme="b" >
+                <h3>Next Semester Timetable</h3>
+                <p>Next semesters timetable has not
+                        yet been decided.
+                </p>
+        </div>
+        <div data-role="footer" data-position="fixed">
+                <h3>GrangeMobile</h3>
+        </div>
+        </div>
+        </div>
+        <!--end of timetable page-->
+        
+        
+        <!--dialog page design practice-->
+        <div data-role="dialog"data-theme="b"  id="prjD" data-close-btn-text="Close This Dialog">
+        <div data-role="header">
+                <h1>GrangeMobile App</h1>
+        </div>
+        <div role="main" class="ui-content">
+                <h2 style="text-align: center;">Pitch Two-Graded 10%</h2>
+                <p style="text-align: center;">Dear Class,
+                Please email me your Google Slides presentation for this week's Graded 
+                Pitch as a submission for this assignment. Only one submission is necessary per team.
+                No other document format should be used. 
+                </p>
+                <p><a href="#home" class="ui-btn" data-rel="back">Return</a></p>
+        </div>
+        <!--dialog page design principle End-->         
+        </div>
+        
+        <!--dialog page UID / simple dialog page that allows user view lecture notification-->
+        <div data-role="dialog" data-theme="b" id="uiD" data-close-btn-text="Close This Dialog">
+        <div data-role="header">
+                <h1>GrangeMobile</h1>
+        </div>
+        <div role="main" class="ui-content">
+                <h2 style="text-align: center;">lecture 6 Slides</h2>
+                <p style="text-align: center;">Lecture 6 slides have been emailed to all enrolled students. Can you all have a basic interaction 
+                design as detailed in class and in the slides, complete for next week? It is finishing 
+                the exercise started in class today. It is not marked but I will be asking people 
+                about their interaction design and getting feedback from the class.
+                </p>
+                <p><a href="#home" class="ui-btn" data-rel="back">Return</a></p>   
+        </div>    
+        </div>     
+     <!--End of design principle dialog --> 
+     
+     <!--Start of human computer interaction dialog-->
+        <div data-role="dialog" data-theme="b" id= "designP" data-close-btn-text="Close This Dialog" >
+        <div data-role="header">
+                <h1>GrangeMobile</h1>
+        </div>
+        <div role="main" class="ui-content">
+                <h2 style="text-align: center;">Project Results</h2>
+                <p style="text-align: center;"> Dear class, the results for your end of term projects will
+                be emailed to each student before the end of the coming week. For feedback on results,
+                please contact me directly.
+                </p>
+                <p><a href="#home" class="ui-btn" data-rel="back">Return</a></p>   
+        </div>    
+        </div> 
+     
+      <!--End of human computer interaction dialog-->
+        
+    <!--start of creative digital media page-->
+        <div data-role="page" id="cdM" data-theme="b">
+        <div data-role="header" data-position="fixed" >
+                <h1>GrangeMobile</h1>
+        </div>  
+        <div data-theme="b"  data-role="navbar">
+                <ul>
+                <li><a href="#home" data-icon="home" data-transition="flip"></a></li>
+                <li><a href="#map-page" data-icon="location" data-transition="flip"></a></li>
+                <li><a href="#timetable" data-icon="grid" data-transition="flip" ></a></li>
+                <li><a href="#societies" data-icon="info" data-transition="flip"></a></li>
+                <li><a href="#login" data-icon="lock" data-transition="slidefade"></a>
+                </ul>
+        </div>
+    <!-- collapsible where json data studentlist will be displayed -->
+        <div role="main" class="ui-content">
+                <img id="logo2" src="app_images/DIT-logo-new-300x300.png"  alt=""/>
+        <div data-role="collapsible" id="studentListDiv" data-theme="b">
+                <h3 id ="jsonGroup" >Lecturer contacts</h3>
+                <ul id="lecturerC">
+                <th><u><strong>Contact list</strong></u></th>
+                </ul>
+        </div>
+        <div data-role="collapsible" data-theme="b" id="module">
+                <h3 id="moduleBtn">Module Information</h3>
+        <div id="moduleUl" data-role="listview" >
+        </div>
+        </div>
+        <div  id="lecturerInfo1"data-role="collapsible" >
+                <h3 id="LI1" >Summer Supervision Details</h3>
+        <div id="LI1Info" >
+        </div>
+        </div>
+        </div>
+        <div data-role="footer" data-position="fixed" > 
+              <h1>GrangeMobile</h1>
+        </div>
+        </div>
+        <!--end of creative digital media page-->
+         
+         <!--start of societies page-->
+        <div data-role="page" id="societies" data-theme="b" >
+        <div data-role="header" data-position="fixed"> 
+               <h3>GrangeMobile</h3>
+        </div>
+        <!--Navigation list for app -->
+               
+        <div data-role="navbar">
+                <ul>
+                <li><a href="#home" data-icon="home" data-transition="flip"></a></li>
+                <li><a href="#map-page" data-icon="location" data-transition="flip"></a></li>
+                <li><a href="#timetable" data-icon="grid"></a></li>
+                <li><a href="#societies" data-icon="info" data-transition="flip"></a></li>
+                <li><a href="#login" data-icon="lock" data-transition="slidefade"></a>
+                </ul>
+        </div>
+        <div data-role="main" class="ui-content">
+        <!--DIT Logo-->
+        <img id="logo2" src="app_images/DIT-logo-new-300x300.png"  alt=""/>
+        <!-- images for socieites, displayed in this div, -->
+        <div data-role="content" class="ui-grid-b">
+        <div class="ui-block-a" id="flickrImg1">
+        </div>
+        <div class="ui-block-b" id="flickrImg2">
+        </div> 
+        <div class="ui-block-c" id="flickrImg3">
+        </div> 
+        </div>
+        <!-- video for societies page-->
+        <div data-role="content">
+                <iframe id="video" src="http://www.youtube.com/embed/hFgi5tqpL34"
+                width="360" height="215" frameborder="0" allowfullscreen></iframe>          
+         <!--iframe tag used as <video> does not allow youtube videos to be streamed-->
+        </div> 
+        <!--end of div containing video-->
+        </div>
+        <div id="societiesText">
+        </div>
+        <div data-role="footer" data-position="fixed">
+                <h3>GrangeMobile</h3>
+        </div>
+        </div>
+        <!--End of societies page-->
+    </body>
+</html>
+
